@@ -5,8 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="@drawable/disposicion_vista_superior_elementos_cine_sobre_fondo_amarillo_espacio_copia_23_2148416777"
+    android:background="@color/fondo_login"
     tools:context=".MainActivity">
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/disposicion_vista_superior_elementos_cine_sobre_fondo_amarillo_espacio_copia_23_2148416777"
+        android:alpha="0.30"/>
 
     <View
         android:id="@+id/view"
