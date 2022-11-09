@@ -8,6 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="morado">#570467</color>
-    <color name="trasnparente">@android:color/transparent</color>/*Transparente*/
+    <color name="transparente">@android:color/transparent</color>/*Transparente*/
     <color name="fondo_login">#F8CF00</color>/*Fondo de login*/
 </resources>
