@@ -4,7 +4,9 @@
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/morado</item>
         <item name="colorPrimaryVariant">@color/fondo_login</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorOnPrimary">@color/morado</item>
+        <item name="hintTextAppearance">@color/design_default_color_on_primary</item>
+        <item name="hintTextColor">@color/morado</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
@@ -12,5 +14,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
     </style>
+
 </resources>

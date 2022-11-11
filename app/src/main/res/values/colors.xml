@@ -9,5 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="morado">#570467</color>
     <color name="transparente">@android:color/transparent</color>/*Transparente*/
-    <color name="fondo_login">#F8CF00</color>/*Fondo de login*/
+    <color name="fondo_login">#FCE157</color>/*Fondo de login*/
 </resources>
