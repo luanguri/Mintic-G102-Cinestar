@@ -141,7 +141,6 @@ public class MainActivity extends AppCompatActivity {
                         }else {
                             // If sign in fails, display a message to the user.
                             //Log.w(TAG; "Error" "signInWithCredential:failure", task.getException());
-
                         }
                     }
                 });
@@ -151,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()){
-                    Intent intent = new Intent(MainActivity.this, SeleccionarGeneroActivity.class);
+                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
                     startActivity(intent);
                 }else {
                     String email = mAuth.getCurrentUser().getEmail();
@@ -161,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if (task.isSuccessful()) {
-                                Intent intent = new Intent(MainActivity.this, SeleccionarGeneroActivity.class);
+                                Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
                                 startActivity(intent);
                             }else {
                                 Toast.makeText(MainActivity.this, "Almacenamiento de usuario fallido", Toast.LENGTH_SHORT).show();
@@ -181,13 +180,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()){
-                    Intent intent = new Intent(MainActivity.this,SeleccionarGeneroActivity.class);
+                    Intent intent = new Intent(MainActivity.this, GeneroActivity.class);
                     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }else {
                     Toast.makeText(MainActivity.this, "El email y la contraseña no son correctas", Toast.LENGTH_LONG).show();
                 }
-
             }
         });
         Log.d("campo", "email: " + email);
