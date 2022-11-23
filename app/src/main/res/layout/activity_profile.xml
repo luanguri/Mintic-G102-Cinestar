@@ -53,7 +53,7 @@
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/TxtInNombre"
+                android:id="@+id/txtInNombre"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -108,7 +108,7 @@
         </com.google.android.material.textfield.TextInputLayout>
         <!--===========================================================================-->
         <Button
-            android:id="@+id/btnProfile"
+            android:id="@+id/btnSaveProfile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"

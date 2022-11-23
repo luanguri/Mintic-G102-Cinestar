@@ -33,7 +33,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Creación de objeto Register=============================================================================
+    //CREACIÓN DE OBJETOS DEL REGISTER =======================================================================
     TextInputEditText mTxtInpEmail;
     TextInputEditText mTxtInpPassword;
     Button mBtnLogin;
@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Busqueda de ID======================================================================================
+        //SEARCH ID===========================================================================================
         mTxtInpEmail = findViewById(R.id.TxtInpEmail);
         mTxtInpPassword = findViewById(R.id.TxtInpPassword);
         mBtnLogin = findViewById(R.id.BtnLogin);
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                login();
+                login(); //LOGIN METHOD
             }
         });
 
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Instancia del TxtRegister===========================================================================
+        //TxtRegister INSTANCE================================================================================
         mTxtRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
                 if (documentSnapshot.exists()){
-                    Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+                    Intent intent = new Intent(MainActivity.this, GeneroActivity.class);
                     startActivity(intent);
                 }else {
                     String email = mAuth.getCurrentUser().getEmail();
@@ -171,7 +171,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
+    //LOGIN METHOD ===============================================================================================================
     private void login() {
         String email = mTxtInpEmail.getText().toString();
         String password = mTxtInpPassword.getText().toString();
