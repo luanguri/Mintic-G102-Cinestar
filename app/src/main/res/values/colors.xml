@@ -10,4 +10,5 @@
     <color name="morado">#570467</color>
     <color name="transparente">@android:color/transparent</color>/*Transparente*/
     <color name="fondo_login">#FCE157</color>/*Fondo de login*/
+    <color name="material_dynamic_neutral95">#FFFFFFFF</color>
 </resources>

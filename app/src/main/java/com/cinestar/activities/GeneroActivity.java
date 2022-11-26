@@ -1,14 +1,17 @@
-package com.cinestar;
+package com.cinestar.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class SelectActivity extends AppCompatActivity {
+import com.cinestar.R;
+
+public class GeneroActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_select);
-    }
+        setContentView(R.layout.activity_genero);
+
+}
 }

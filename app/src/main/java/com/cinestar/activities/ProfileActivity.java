@@ -1,6 +1,7 @@
-package com.cinestar;
+package com.cinestar.activities;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -9,6 +10,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.cinestar.R;
+import com.cinestar.models.User;
+import com.cinestar.providers.AuthProviders;
+import com.cinestar.providers.UsersProvider;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
@@ -23,8 +28,9 @@ public class ProfileActivity extends AppCompatActivity {
     //PROFILE OBJECT DECLARATION =============================================================================
     TextInputEditText mtxtInNombre;
     Button mbtnSaveProfile;
-    FirebaseAuth mAuth;
-    FirebaseFirestore mFirestore;
+    AuthProviders mAuthProvider;
+    UsersProvider mUsersProvider;
+    AlertDialog mAlertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +40,12 @@ public class ProfileActivity extends AppCompatActivity {
         //OBJET INSTANCES / SEARCH ID ========================================================================
         mtxtInNombre = findViewById(R.id.txtInNombre);
         mbtnSaveProfile = findViewById(R.id.btnSaveProfile);
-        mAuth = FirebaseAuth.getInstance();
-        mFirestore = FirebaseFirestore.getInstance();
+
+        //INSTANCIAMOS LOS PROVEHEDORES======================================================================
+        //Autenticacion
+        mAuthProvider = new AuthProviders();
+        //Usuarios en firebase
+        mUsersProvider = new UsersProvider();
 
         //PROFILE BUTTON =====================================================================================
         mbtnSaveProfile.setOnClickListener(new View.OnClickListener() {
@@ -55,17 +65,20 @@ public class ProfileActivity extends AppCompatActivity {
     }
     //UPDATE USER METHOD ===============================================================================================================
     private void updateUser(String username) {
-        String id = mAuth.getCurrentUser().getUid();
-        Map<String,Object> map = new HashMap<>();
-        map.put("username", username);
-        mFirestore.collection("Users").document(id).update(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+        String id = mAuthProvider.getUid();
+        User user=new User();
+        user.setUsername(username);
+        user.setId(id);
+        mAlertDialog.show();
+        mUsersProvider.update(user).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
+                mAlertDialog.dismiss();
                 if (task.isSuccessful()) {
                     Intent intent = new Intent(ProfileActivity.this, GeneroActivity.class);
                     startActivity(intent);
                 }else {
-                    Toast.makeText(ProfileActivity.this, "Almacenamiento fallido", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ProfileActivity.this, "No se almacenó el usuario en la base de datos", Toast.LENGTH_SHORT).show();
                 }
             }
         });

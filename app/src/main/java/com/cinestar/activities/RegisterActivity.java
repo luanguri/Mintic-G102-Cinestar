@@ -1,25 +1,28 @@
-package com.cinestar;
+package com.cinestar.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.cinestar.R;
+import com.cinestar.models.User;
+import com.cinestar.providers.AuthProviders;
+import com.cinestar.providers.UsersProvider;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import dmax.dialog.SpotsDialog;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -29,8 +32,9 @@ public class RegisterActivity extends AppCompatActivity {
     TextInputEditText mTxtInpPasswordR;
     TextInputEditText mTxtInpConfirmPassword;
     Button mBtnRegister;
-    FirebaseAuth mAuth;
-    FirebaseFirestore mFirestore;
+    AuthProviders mAuthProvider;
+    UsersProvider mUsersProvider;
+    AlertDialog mAlertDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +46,14 @@ public class RegisterActivity extends AppCompatActivity {
         mTxtInpPasswordR = findViewById(R.id.TxtInpPasswordR);
         mTxtInpConfirmPassword = findViewById(R.id.TxtInpConfirmPassword);
         mBtnRegister = findViewById(R.id.BtnRegister);
-        mAuth = FirebaseAuth.getInstance();
-        mFirestore = FirebaseFirestore.getInstance();
+
+        mAlertDialog =new SpotsDialog.Builder()
+                .setContext(this)
+                .setMessage("Espere un momento....")
+                .setCancelable(false).build();
+
+        mAuthProvider = new AuthProviders();
+        mUsersProvider = new UsersProvider();
 
         mBtnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,19 +90,25 @@ public class RegisterActivity extends AppCompatActivity {
     }
     //Método crear usuario===============================================================================================================
     private void createUser(final String username, final String email, String password) {
-        mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+        mAlertDialog.show();
+        mAuthProvider.register(email,password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
+                mAlertDialog.dismiss();
                 if (task.isSuccessful()){
-                    String id = mAuth.getCurrentUser().getUid();
-                    Map<String, Object> map = new HashMap<>();
-                    map.put("username", username);
-                    map.put("email", email);
-                    map.put("password", password);
+                    String id = mAuthProvider.getUid();
+                    User user=new User();
+                    user.setId(id);
+                    user.setEmail(email);
+                    user.setUsername(username);
+                    user.setPassword(password);
+
                     //Este método crea la colección "Users" den Faribase.
-                    mFirestore.collection("Users").document(id).set(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    mUsersProvider.create(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
+                            mAlertDialog.dismiss();
                             if (task.isSuccessful()){
                                 Toast.makeText(RegisterActivity.this, "Registro guardado", Toast.LENGTH_SHORT).show();
                                 //El método "intent" finaliza la tarea del Register si se cumple el registro del usuario e inicia el login.
@@ -106,6 +122,7 @@ public class RegisterActivity extends AppCompatActivity {
                     });
                     Toast.makeText(RegisterActivity.this, "Registro completo", Toast.LENGTH_SHORT).show();
                 }else {
+                    mAlertDialog.dismiss();
                     Toast.makeText(RegisterActivity.this, "Registro fallido", Toast.LENGTH_LONG).show();
                 }
             }

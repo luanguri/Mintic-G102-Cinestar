@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     android:background="@color/fondo_login"
-    tools:context=".SelectActivity">
+    tools:context=".activities.SelectActivity">
 
     <View
         android:id="@+id/view"
