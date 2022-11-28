@@ -1,9 +1,9 @@
 package com.cinestar.activities;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -17,11 +17,8 @@ import com.cinestar.providers.UsersProvider;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.FirebaseFirestore;
 
-import java.util.HashMap;
-import java.util.Map;
+import dmax.dialog.SpotsDialog;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -40,6 +37,11 @@ public class ProfileActivity extends AppCompatActivity {
         //OBJET INSTANCES / SEARCH ID ========================================================================
         mtxtInNombre = findViewById(R.id.txtInNombre);
         mbtnSaveProfile = findViewById(R.id.btnSaveProfile);
+
+        mAlertDialog =new SpotsDialog.Builder()
+                .setContext(this)
+                .setMessage("Espere un momento....")
+                .setCancelable(false).build();
 
         //INSTANCIAMOS LOS PROVEHEDORES======================================================================
         //Autenticacion
@@ -76,6 +78,7 @@ public class ProfileActivity extends AppCompatActivity {
                 mAlertDialog.dismiss();
                 if (task.isSuccessful()) {
                     Intent intent = new Intent(ProfileActivity.this, GeneroActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|intent.FLAG_ACTIVITY_NEW_TASK);
                     startActivity(intent);
                 }else {
                     Toast.makeText(ProfileActivity.this, "No se almacenó el usuario en la base de datos", Toast.LENGTH_SHORT).show();
