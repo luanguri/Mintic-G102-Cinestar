@@ -39,7 +39,7 @@ public class GeneroActivity extends AppCompatActivity {
 
     BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                /*@Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     switch (item.getItemId()) {
                         case R.id.navigation_home:
                             openFragment(new HomeFragment());
@@ -52,8 +52,19 @@ public class GeneroActivity extends AppCompatActivity {
                             //return true;
                         case R.id.navigation_perfil:
                             openFragment(new ProfileFragment());
-                    }
-                    return false;
+                    }*/
+
+                    @Override public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                        if(item.getItemId()==R.id.navigation_home){
+                            openFragment(new HomeFragment());
+                        }else if(item.getItemId()==R.id.navigation_chat){
+                            openFragment(new ChatsFragment());
+                        }else if(item.getItemId()==R.id.navigation_filter){
+                            openFragment(new FiltersFragment());
+                        }else if(item.getItemId()==R.id.navigation_perfil){
+                            openFragment(new ProfileFragment());
+                        }
+                    return true;
                 }
             };
 

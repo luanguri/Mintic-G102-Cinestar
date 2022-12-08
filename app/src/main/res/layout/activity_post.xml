@@ -46,6 +46,7 @@
                     app:cardCornerRadius="20dp">
 
                     <ImageView
+                        android:id="@+id/imageViewPost1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/subir_foto"
@@ -62,6 +63,7 @@
                     app:cardCornerRadius="20dp">
 
                     <ImageView
+                        android:id="@+id/imageViewPost2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/subir_foto"
@@ -144,7 +146,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/textViewCardCategory"
+            android:id="@+id/textViewCategory"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
@@ -179,6 +181,7 @@
                     >
 
                     <ImageView
+                        android:id="@+id/imageViewAction"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/accion"
@@ -215,6 +218,7 @@
                     >
 
                     <ImageView
+                        android:id="@+id/imageViewTerror"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/terror_2" />
@@ -248,6 +252,7 @@
                     >
 
                     <ImageView
+                        android:id="@+id/imageViewComedia"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/comedia" />
@@ -291,6 +296,7 @@
                     >
 
                     <ImageView
+                        android:id="@+id/imageViewAnimation"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/animado" />
@@ -324,6 +330,7 @@
                     >
 
                     <ImageView
+                        android:id="@+id/imageViewAnime"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/anime" />
@@ -356,6 +363,7 @@
                     >
 
                     <ImageView
+                        android:id="@+id/imageViewRomance"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:src="@drawable/romance" />
@@ -374,7 +382,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/BtnPost"
+            android:id="@+id/btnPost"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
