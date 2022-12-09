@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cinestar.R;
+import com.cinestar.fragments.FiltersFragment;
 import com.cinestar.models.User;
 import com.cinestar.providers.AuthProviders;
 import com.cinestar.providers.UsersProvider;

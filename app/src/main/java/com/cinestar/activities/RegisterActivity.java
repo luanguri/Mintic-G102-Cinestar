@@ -135,4 +135,7 @@ public class RegisterActivity extends AppCompatActivity {
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
+
+    private class Builder {
+    }
 }

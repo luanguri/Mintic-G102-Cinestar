@@ -23,27 +23,24 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@color/fondo_login"
                 android:alpha="0.85"
-                />
+                android:background="@color/fondo_login" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:text="Registrate"
                 android:textAlignment="center"
                 android:textColor="@color/morado"
-                android:textSize="25dp"
-                android:layout_marginTop="20dp"
-                />
+                android:textSize="25dp" />
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:layout_gravity="center"
                 android:layout_marginTop="35dp"
-                android:src="@drawable/ic_baseline_person_24"
-                />
+                android:src="@drawable/ic_baseline_person_24" />
         </io.github.florent37.shapeofview.shapes.CutCornerView>
 
         <!--===========================================================================-->
@@ -58,8 +55,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/ic_baseline_account_circle_24"
-                />
+                android:src="@drawable/ic_baseline_account_circle_24" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -75,8 +71,7 @@
                     android:hint="Nombre de usuario"
                     android:inputType="text"
                     android:textColor="@color/morado"
-                    tools:ignore="TouchTargetSizeCheck"
-                    />
+                    tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -93,8 +88,7 @@
                 android:layout_marginLeft="23dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/ic_baseline_attach_email_24"
-                />
+                android:src="@drawable/ic_baseline_attach_email_24" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -105,14 +99,13 @@
                     android:id="@+id/TxtInpEmailR"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
                     android:background="@color/transparente"
                     android:hint="Correo electrónico"
                     android:inputType="text"
                     android:textColor="@color/morado"
-                    tools:ignore="TouchTargetSizeCheck"
-                    />
+                    tools:ignore="TouchTargetSizeCheck" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </LinearLayout>
@@ -129,8 +122,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/ic_baseline_lock_person_24"
-                />
+                android:src="@drawable/ic_baseline_lock_person_24" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -141,8 +133,8 @@
                     android:id="@+id/TxtInpPasswordR"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
                     android:background="@color/transparente"
                     android:hint="Contraseña"
                     android:inputType="textPassword"
@@ -164,8 +156,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/ic_baseline_lock_open_24"
-                />
+                android:src="@drawable/ic_baseline_lock_open_24" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -176,8 +167,8 @@
                     android:id="@+id/TxtInpConfirmPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="20dp"
                     android:layout_marginTop="10dp"
+                    android:layout_marginRight="20dp"
                     android:background="@color/transparente"
                     android:hint="Confirmar contraseña"
                     android:inputType="textPassword"

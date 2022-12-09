@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "273632627266",
-    "project_id": "cinestar-f0836",
-    "storage_bucket": "cinestar-f0836.appspot.com"
+    "project_number": "316370072779",
+    "project_id": "cinestar-65be6",
+    "storage_bucket": "cinestar-65be6.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:273632627266:android:ff3165200524be07fcfbdb",
+        "mobilesdk_app_id": "1:316370072779:android:9066a34cc978e91b6d574e",
         "android_client_info": {
           "package_name": "com.cinestar"
         }
       },
       "oauth_client": [
         {
-          "client_id": "273632627266-krqisu8850krrsntjvp4ddq4mbnm4mn2.apps.googleusercontent.com",
+          "client_id": "316370072779-ebi4vql8nkisp0i5or75l0b56q0i7grv.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.cinestar",
-            "certificate_hash": "cab895ff7c55696161a4c0a4d762e0cf150e34e7"
+            "certificate_hash": "a899f0bb52c1fd07b3295e6d352733426846d0f5"
           }
         },
         {
-          "client_id": "273632627266-1ghhv39nlvne122heqrrcgamb3bub3sf.apps.googleusercontent.com",
+          "client_id": "316370072779-l889oip4o48avtghiti02jo3aha2u5ul.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCZH889uWvtKebsNhXhnmMyuWYmXkEQkdc"
+          "current_key": "AIzaSyBZSBydIa7dd8wWzuiDPsUyXNZ9X5YMEQ4"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "273632627266-1ghhv39nlvne122heqrrcgamb3bub3sf.apps.googleusercontent.com",
+              "client_id": "316370072779-l889oip4o48avtghiti02jo3aha2u5ul.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
